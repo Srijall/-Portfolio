@@ -38,6 +38,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   className="bg-green-600 hover:bg-green-700 text-black font-semibold"
+                  style={{width: "fit-content"}}
                   onClick={() => document.getElementById("connect")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   <Mail className="w-4 h-4 mr-2" />
