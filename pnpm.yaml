@@ -1,0 +1,31 @@
+node-linker: hoisted
+shamefully-hoist: true
+strict-peer-dependencies: false
+auto-install-peers: true
+resolution-mode: highest
+
+# Production settings
+production: true
+store-dir: .pnpm-store
+
+# Cache settings
+cache-dir: .pnpm-cache
+
+# Network settings
+network-timeout: 100000
+registry: https://registry.npmjs.org/
+
+# Workspace settings
+shared-workspace-lockfile: true
+prefer-workspace-packages: true
+
+# Script settings
+enable-pre-post-scripts: true
+
+# Security settings
+ignore-scripts: false
+unsafe-perm: true
+
+# Dependency settings
+dedupe-peer-dependencies: true
+prefer-frozen-lockfile: true 
