@@ -8,10 +8,30 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { FloatingBackground } from "@/components/ui/floating-background"
 import { GridBackground } from "@/components/ui/grid-background"
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
+import { useRouter } from "next/navigation"
 import { CODE_SNIPPET } from "@/constants/code-snippets"
+import { useLoading } from "@/service/loadingService"
 
-export function HeroSection() {
+
+
+interface AppConfig {
+  name: string;
+  framework: string;
+  language: string;
+  styling: string;
+  features: string[];
+  build: string;
+  deploy: string;
+}
+
+interface HeroSectionProps {
+  onResumeClick?: () => void;
+}
+
+export function HeroSection({ onResumeClick }: HeroSectionProps) {
   useScrollAnimation()
+  const router = useRouter()
+  const { showLoader } = useLoading();
 
   return (
     <GridBackground className="min-h-screen">
@@ -49,7 +69,12 @@ export function HeroSection() {
                   className="bg-transparent border-green-600 text-green-400 hover:bg-green-600/10"
                   containerClassName="w-48 h-12"
                   duration={4000}
-                  onClick={() => window.open("/resume", "_blank")}
+                  onClick={() => {
+                    showLoader();
+                    setTimeout(() => {
+                      router.push("/resume");
+                    },1800);
+                  }}
                 >
                   <FileText className="w-4 h-4 mr-2" />
                   View My Resume

@@ -71,7 +71,14 @@ export function ConcentrateSection() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="bg-gray-900/90 backdrop-blur-sm border-green-800/30 hover:border-green-600/50 transition-all duration-300 scroll-animate fade-in-up shadow-2xl hover:shadow-green-500/10"
+                className="bg-gray-900/90 backdrop-blur-sm border-green-800/30  scroll-animate fade-in-up shadow-2xl hover:shadow-green-900/90 hover:border-green-600/80 cursor-help transform transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:-translate-y hover:shadow-[0_5px_15px_rgba(0,188,212,0.3)]"
+                // hover:ring hover:ring-green-500/50 for all side effect
+                // className="bg-gray-900/90 backdrop-blur-sm border-green-800/30 
+                // transition-all duration-300 scroll-animate fade-in-up shadow-2xl 
+                // hover:shadow-green-400/65 hover:border-green-600/50 cursor-help 
+                // transform transition-transform duration-300 ease-in-out hover:scale-[1.
+                // 02] hover:-translate-y hover:shadow-[0_5px_15px_rgba(0,188,212,0.3)]"
+                // // hover:ring hover:ring-green-500/50 for all side effect
                 style={{ animationDelay: feature.delay }}
               >
                 <CardContent className="p-6">
@@ -82,16 +89,18 @@ export function ConcentrateSection() {
               </Card>
             ))}
           </div>
-
+          
           <div className="mt-16 text-center scroll-animate fade-in-up">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 border border-green-800/30 max-w-4xl mx-auto">
-              <h4 className="text-2xl font-bold text-green-400 mb-4">Development Philosophy</h4>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                I believe in writing clean, maintainable code that not only works flawlessly but is also easy to understand and extend. 
-                Every line of code is an opportunity to create something better, more efficient, and more user-friendly. 
-                By focusing on modern best practices and continuous learning, I ensure that every project meets the highest standards of quality and performance.
-              </p>
-            </div>
+            <Card className="bg-gray-900/90 backdrop-blur-sm rounded-lg p-8 border-2 max-w-4xl mx-auto scroll-animate fade-in-up border-green-800/30 hover:border-green-600/80 cursor-help transform transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:shadow-[0_5px_15px_rgba(0,188,212,0.3)]">
+              <CardContent className="p-6">
+                <h4 className="text-2xl font-bold text-green-400 mb-4">Development Philosophy</h4>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  I believe in writing clean, maintainable code that not only works flawlessly but is also easy to understand and extend.
+                  Every line of code is an opportunity to create something better, more efficient, and more user-friendly.
+                  By focusing on modern best practices and continuous learning, I ensure that every project meets the highest standards of quality and performance.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

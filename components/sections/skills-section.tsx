@@ -5,6 +5,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { InfiniteMovingSkills } from "@/components/ui/infinite-moving-cards"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { frontendSkills, backendSkills } from "@/constants/skills-data"
+import { Card, CardContent } from "@/components/ui/card"
 
 export function SkillsSection() {
   useScrollAnimation()
@@ -76,14 +77,16 @@ export function SkillsSection() {
           </div>
 
           <div className="text-center mt-16 scroll-animate fade-in-up">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 border border-green-800/30 max-w-4xl mx-auto">
-              <h4 className="text-2xl font-bold text-green-400 mb-4">Always Learning, Always Growing</h4>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Technology evolves rapidly, and so do I. I'm constantly exploring new frameworks, tools, and best
-                practices to deliver cutting-edge solutions that meet modern development standards and exceed client
-                expectations.
-              </p>
-            </div>
+            <Card className="bg-gray-900/90 backdrop-blur-sm rounded-lg p-8 border-2 max-w-4xl mx-auto scroll-animate fade-in-up border-green-800/30 hover:border-green-600/80 cursor-help transform transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:-translate-y hover:shadow-[0_5px_15px_rgba(0,188,212,0.3)]">
+              <CardContent className="p-6">
+                <h4 className="text-2xl font-bold text-green-400 mb-4">Always Learning, Always Growing</h4>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Technology evolves rapidly, and so do I. I'm constantly exploring new frameworks, tools, and best
+                  practices to deliver cutting-edge solutions that meet modern development standards and exceed client
+                  expectations.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

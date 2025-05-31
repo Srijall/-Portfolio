@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/components/magicui/*": ["./components/magicui/*"]
     },
     "jsxImportSource": "react",
     "types": ["react", "react-dom", "node"]
