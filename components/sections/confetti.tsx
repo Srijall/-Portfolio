@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { AuroraText } from "@/components/magicui/aurora-text";
+
 export function ConfettiOnScroll() {
   const confettiTriggered = useRef(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -70,9 +72,9 @@ export function ConfettiOnScroll() {
           transition={{ duration: 0.5 }}
           className="fixed inset-0 flex items-center justify-center pointer-events-none z-50 text-white text-4xl font-bold text-center"
         >
-          <div className="text-gray-300">
-          Thanks for the visit ❤️
-            </div>
+          <div className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl">
+          THANKS FOR <AuroraText>THE VISIT!</AuroraText>✨
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

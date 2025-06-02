@@ -113,7 +113,7 @@ export const InfiniteMovingCards = ({
 export const InfiniteMovingSkills = ({
   items,
   direction = "left",
-  speed = "normal",
+  speed = "fast",
   pauseOnHover = true,
   className,
 }: {
@@ -162,7 +162,7 @@ export const InfiniteMovingSkills = ({
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "15s")
+        containerRef.current.style.setProperty("--animation-duration", "50s")
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "30s")
       } else {
@@ -183,7 +183,7 @@ export const InfiniteMovingSkills = ({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-6 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          pauseOnHover,
         )}
       >
         {items.map((item, idx) => (

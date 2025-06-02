@@ -49,10 +49,10 @@ export function HeroSection({ onResumeClick }: HeroSectionProps) {
 
               <TextGenerateEffect
                 words="Passionate about creating dynamic, user-friendly web applications using modern technologies like Angular, React, TypeScript, and JavaScript. Experienced in building scalable solutions and delivering exceptional user experiences."
-                className="text-xl text-gray-300 mb-8 leading-relaxed font-normal"
+                className="max-w-full break-words whitespace-normal overflow-wrap "
                 duration={0.6}
-                filter={false}
-              />
+                filter={true}
+              />  
 
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button
@@ -82,28 +82,30 @@ export function HeroSection({ onResumeClick }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Code Editor Mockup */}
-            <div className="relative scroll-animate fade-in-up" style={{ animationDelay: "0.2s" }}>
-              <Card className="bg-gray-900/90 backdrop-blur-sm border-green-800/30 overflow-hidden shadow-2xl" style={{ width: "120%" }}>
-                <div className="bg-gray-800/90 backdrop-blur-sm px-4 py-2 border-b border-green-800/30">
+            {/* Right Column - Code Editor */}
+            <div className="scroll-animate fade-in-up mt-8 lg:mt-0 w-full">
+              <Card className="bg-gray-900/90 backdrop-blur-sm border-green-800/30 overflow-hidden shadow-2xl w-full transform transition-transform duration-300 hover:scale-[1.02]">
+                <div className="bg-gray-800/90 backdrop-blur-sm px-3 sm:px-4 py-2 border-b border-green-800/30">
                   <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="ml-4 text-sm text-gray-400">developer.service.ts - Srijal Shrestha</span>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                    <span className="ml-2 sm:ml-4 text-xs sm:text-sm text-gray-400 truncate">developer.service.ts - Srijal Shrestha</span>
                   </div>
                 </div>
                 <CardContent className="p-0">
-                  <div className="flex">
-                    <div className="bg-gray-800/90 backdrop-blur-sm px-2 py-4 text-xs text-gray-500 select-none">
+                  <div className="flex min-w-0">
+                    <div className="bg-gray-800/90 backdrop-blur-sm px-1 sm:px-2 py-3 sm:py-4 text-[10px] sm:text-xs text-gray-500 select-none">
                       {Array.from({ length: 35 }, (_, i) => (
-                        <div key={i} className="leading-6">
+                        <div key={i} className="leading-5 sm:leading-6">
                           {String(i + 1).padStart(2, "0")}
                         </div>
                       ))}
                     </div>
-                    <pre className="flex-1 p-4 text-sm overflow-x-auto">
-                      <code className="text-green-400">{CODE_SNIPPET}</code>
+                    <pre className="flex-1 p-2 sm:p-4 text-xs sm:text-sm overflow-x-auto min-w-0 whitespace-pre-wrap break-words">
+                      <code className="text-green-400 whitespace-pre-wrap">
+                        {CODE_SNIPPET}
+                      </code>
                     </pre>
                   </div>
                 </CardContent>

@@ -92,3 +92,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@media (max-width: 640px) {  /* Tailwind default "sm" breakpoint or adjust as needed */
+  .responsive-text-container {
+    max-width: 50%;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+}

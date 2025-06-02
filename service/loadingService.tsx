@@ -37,7 +37,7 @@ export const LoadingProvider: React.FC<{ children: ReactNode }> = ({ children })
     <LoadingContext.Provider value={{ isLoading, showLoader, hideLoader }}>
       {children}
       {isLoading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-950/70 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-blue-500/70 z-50 backdrop-blur-sm" >
           <TerminalLoader />
         </div>
       )}
