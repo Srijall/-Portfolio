@@ -51,7 +51,7 @@ export function HeroSection({ onResumeClick }: HeroSectionProps) {
             <div className="scroll-animate fade-in-up hero-section-morphing-text-container flex flex-col">
               <MorphingText
                 texts={texts}
-                className="text-5xl lg:text-5xl mb-12 leading-tight"
+                className="text-3xl lg:text-5xl  leading-tight"
               />
 
               <TextGenerateEffect
