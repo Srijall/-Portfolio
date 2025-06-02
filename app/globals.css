@@ -249,3 +249,11 @@ body {
     }
   }
 }
+
+/* Add a custom CSS rule for mobile centering in the hero section */
+@media (max-width: 1023px) {
+  .hero-section-morphing-text-container {
+    margin-bottom: 20px !important;
+    gap: 20px !important;
+  }
+}

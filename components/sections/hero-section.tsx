@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation"
 import { CODE_SNIPPET } from "@/constants/code-snippets"
 import { useLoading } from "@/service/loadingService"
 
-
+import { MorphingText } from "@/components/magicui/morphing-text";
 
 interface AppConfig {
   name: string;
@@ -28,6 +28,15 @@ interface HeroSectionProps {
   onResumeClick?: () => void;
 }
 
+const texts = [
+  "SRIJAL SHRESTHA",
+  "Software Developer",
+  "TypeScript & JavaScript",
+  "User Experience",
+  "Dynamic Interfaces",
+  "Scalable Applications",
+];
+
 export function HeroSection({ onResumeClick }: HeroSectionProps) {
   useScrollAnimation()
   const router = useRouter()
@@ -39,12 +48,10 @@ export function HeroSection({ onResumeClick }: HeroSectionProps) {
         <FloatingBackground />
         <div className="max-w-7xl mx-auto relative z-30">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="scroll-animate fade-in-up">
-              <TextGenerateEffect
-                words="Frontend Developer "
-                className="text-4xl lg:text-6xl mb-6 leading-tight"
-                duration={0.8}
-                filter={true}
+            <div className="scroll-animate fade-in-up hero-section-morphing-text-container flex flex-col">
+              <MorphingText
+                texts={texts}
+                className="text-5xl lg:text-5xl mb-12 leading-tight"
               />
 
               <TextGenerateEffect
