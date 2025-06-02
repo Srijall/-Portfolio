@@ -12,8 +12,6 @@ import { useRouter } from "next/navigation"
 import { CODE_SNIPPET } from "@/constants/code-snippets"
 import { useLoading } from "@/service/loadingService"
 
-import { MorphingText } from "@/components/magicui/morphing-text";
-
 interface AppConfig {
   name: string;
   framework: string;
@@ -49,10 +47,13 @@ export function HeroSection({ onResumeClick }: HeroSectionProps) {
         <div className="max-w-7xl mx-auto relative z-30">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="scroll-animate fade-in-up hero-section-morphing-text-container flex flex-col">
-              <MorphingText
-                texts={texts}
-                className="text-3xl lg:text-5xl  leading-tight"
+            <TextGenerateEffect
+                words="Software Developer"
+                className="text-4xl lg:text-6xl mb-6 leading-tight"
+                duration={0.8}
+                filter={true}
               />
+
 
               <TextGenerateEffect
                 words="Passionate about creating dynamic, user-friendly web applications using modern technologies like Angular, React, TypeScript, and JavaScript. Experienced in building scalable solutions and delivering exceptional user experiences."
