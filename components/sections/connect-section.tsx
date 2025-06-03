@@ -13,6 +13,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { toast } from "react-hot-toast"
 import { Toaster } from "react-hot-toast"
+import emailjs from '@emailjs/browser'
 
 interface FormData {
   name: string
@@ -34,6 +35,16 @@ export function ConnectSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  // Initialize EmailJS
+  useEffect(() => {
+    try {
+      emailjs.init("ndQz776bpPp-mImYN")
+      console.log("EmailJS initialized successfully")
+    } catch (error) {
+      console.error("Error initializing EmailJS:", error)
+    }
+  }, [])
 
   // Load saved form data from localStorage on component mount
   useEffect(() => {
@@ -65,42 +76,48 @@ export function ConnectSection() {
     setSubmitStatus("idle")
 
     try {
-      // Here you would typically send the data to your backend
-      // For now, we'll just simulate a submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Get existing messages
-      const existingMessages = localStorage.getItem(MESSAGES_KEY)
-      const messages = existingMessages ? JSON.parse(existingMessages) : []
-      
-      // Add new message with timestamp
-      const newMessage = {
-        ...formData,
-        timestamp: new Date().toISOString()
+      console.log("Starting email send process...")
+      console.log("Form data:", formData)
+
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: "Srijal Shrestha",
       }
-      messages.push(newMessage)
+
+      const response = await emailjs.send(
+        "service_n06st5v",
+        "template_tpfl0rn",
+        templateParams
+      )
+
+      console.log("EmailJS response:", response)
       
-      // Store updated messages array
-      localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages))
-      
-      // Show toast
-      toast.success("Message sent successfully!")
-      
-      // Clear the form after successful submission
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-      // Clear only the form draft, keep the messages
-      localStorage.removeItem(STORAGE_KEY)
-      
-      setSubmitStatus("success")
-    } catch (error) {
-      console.error("Error submitting form:", error)
+      if (response.status === 200) {
+        // Show success toast
+        toast.success("Message sent successfully! I'll get back to you soon.")
+        
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+        localStorage.removeItem(STORAGE_KEY)
+        
+        setSubmitStatus("success")
+      } else {
+        throw new Error(`Unexpected response status: ${response.status}`)
+      }
+    } catch (error: any) { 
+      if (error.text) {
+        console.error("EmailJS error text:", error.text)
+      }
       setSubmitStatus("error")
-      toast.error("There was an error sending your message. Please try again.")
+      toast.error(error.text || "There was an error sending your message. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
