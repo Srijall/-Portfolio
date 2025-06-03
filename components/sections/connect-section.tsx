@@ -96,6 +96,7 @@ export function ConnectSection() {
 
       console.log("EmailJS response:", response)
       
+      
       if (response.status === 200) {
         // Show success toast
         toast.success("Message sent successfully! I'll get back to you soon.")
