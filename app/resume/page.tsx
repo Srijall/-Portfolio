@@ -8,8 +8,12 @@ import { Download, Mail, Phone, MapPin, Linkedin } from "lucide-react"
 
 export default function ResumePage() {
   const handleDownload = () => {
-    // You can implement actual PDF download here
-    console.log("Download resume PDF")
+    const link = document.createElement('a')
+    link.href ='/updated-cv-final.pdf'
+    link.download = 'Srijal-Shrestha-CV.pdf'
+    document.body.appendChild(link);
+    link.click()
+    document.body.removeChild(link);
   }
 
   return (

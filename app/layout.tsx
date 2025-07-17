@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: 'SRIJAL',
-  description: 'Created with v0',
   generator: 'v0.dev',
   icons: {
-    icon: '/logo srijal.png', // Or '/favicon.png' if you're using PNG
+    icon: '/logo srijal.png', 
   },
 }
 
@@ -17,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
